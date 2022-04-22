@@ -317,16 +317,15 @@ The search results will be more varied and accurate, so that the sites that come
           text-align: center;" >
         contact me
       </p>
-      <form action="mailto:sara23071943@gmail.com" method="GET" target="_blank" enctype="text/plain"
-        style="
-        text-align: left;
-        font-size: 15pt;
-        font-family: monospace;
-        background-color: #f2f2f2;
-        padding: 10px;
-        margin:60px;
-        border: 2px solid rgb(123, 123, 123);;
-        border-radius: 8px;">    
+ <div style="
+      text-align: left;
+      font-size: 15pt;
+      font-family: monospace;
+      background-color: #f2f2f2;
+      padding: 10px;
+      margin:60px;
+      border: 2px solid rgb(123, 123, 123);;
+      border-radius: 8px;  ">
       Name:
       <br />
       <div class="field"><label class="label" for="body"></label>
@@ -341,9 +340,12 @@ The search results will be more varied and accurate, so that the sites that come
             <button id="button1">Get &#128540;</button>
           </div>
       </div>
-      <input type="submit" class="button" value="Send" />
-      <input type="reset" value="Clear" class="button" />
-    </form>
+      <div>
+        <button id="submit" class="button" onclick="sendMail()">Send</button>
+        <button id="clear" class="button" onclick="document.getElementById('subject').value='',document.getElementById('body').value=''">Clear</button>
+      </div>
+      </div>
+      <br />
       <br />
     </section>
 
@@ -372,5 +374,14 @@ The search results will be more varied and accurate, so that the sites that come
           document.title += " " + emojiText;
       }
   </script>
+  <script>
+
+    function sendMail()
+  {
+    var subject = document.getElementById("subject").value;
+    var body = document.getElementById("body").value;
+    window.location.href = "mailto:sara23071943@gmail.com?subject="+subject+"&body="+body;
+  }
+  </script> 
   </body>
 </html>
